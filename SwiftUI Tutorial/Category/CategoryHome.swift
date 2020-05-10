@@ -11,6 +11,7 @@ import SwiftUI
 struct CategoryHome: View {
     
     @State var showProfile = false
+    @EnvironmentObject var userData: UserData
     
     var profileButton: some View {
         Button(action: { self.showProfile.toggle() }) {
@@ -48,7 +49,7 @@ struct CategoryHome: View {
                 }
             }
             .sheet(isPresented: self.$showProfile) {
-                Text("User Profile").font(.largeTitle)
+                ProfileHost().environmentObject(self.userData)
             }
         .navigationBarItems(trailing: profileButton)
             .navigationBarTitle(Text("Featured").font(.title))

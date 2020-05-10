@@ -9,10 +9,10 @@ import SwiftUI
 
 extension AnyTransition {
     static var moveAndFade: AnyTransition {
-        var insertion = AnyTransition.move(edge: .trailing)
+        let insertion = AnyTransition.move(edge: .trailing)
             .combined(with: .opacity)
         
-        var removal = AnyTransition.scale
+        let removal = AnyTransition.scale
             .combined(with: .opacity)
         
         return .asymmetric(insertion: insertion, removal: removal)
